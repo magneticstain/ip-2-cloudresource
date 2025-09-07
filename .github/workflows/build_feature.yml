@@ -40,8 +40,8 @@ jobs:
 
       - name: Install govulncheck
         # tmp fix for https://github.com/golang/go/issues/66139
-        run: go install golang.org/x/vuln/cmd/govulncheck@b985bac21760c0bd7630a2a13894f871359d2286  # v1.1.4
-        # run: go install golang.org/x/vuln/cmd/govulncheck@latest
+        # run: go install golang.org/x/vuln/cmd/govulncheck@b985bac21760c0bd7630a2a13894f871359d2286  # v1.1.4
+        run: go install golang.org/x/vuln/cmd/govulncheck@v1.1.4
         # run: go install golang.org/x/vuln/cmd/govulncheck@master
       - name: Run govulncheck
         run: govulncheck -test ./...
