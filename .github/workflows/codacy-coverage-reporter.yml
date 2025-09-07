@@ -2,7 +2,14 @@
 
 name: Codacy Coverage Reporter
 
-on: ["push"]
+# secrets don't propogate to forks (e.g. dependabot PRs), so we will need to ignore them
+on:
+  push:
+    branches-ignore:
+      - dependabot/**
+  pull_request:
+    branches-ignore:
+      - dependabot/**
 
 jobs:
   codacy-coverage-reporter:
