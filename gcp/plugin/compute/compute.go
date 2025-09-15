@@ -75,7 +75,7 @@ func (comp ComputePlugin) GetResources() ([]generalResource.Resource, error) {
 	if err != nil {
 		return computeResources, err
 	}
-	defer computeClient.Close()
+	defer computeClient.Close()  //nolint:errcheck
 
 	req := &gcpcomputepbapi.AggregatedListInstancesRequest{
 		Project: comp.ProjectID,

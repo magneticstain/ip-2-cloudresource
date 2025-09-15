@@ -30,7 +30,7 @@ func (lbp LoadBalancingPlugin) GetResources() ([]generalResource.Resource, error
 	if err != nil {
 		return lbResources, err
 	}
-	defer gaClient.Close()
+	defer gaClient.Close() //nolint:errcheck
 
 	req := &gcpcomputepbapi.ListGlobalAddressesRequest{
 		Project: lbp.ProjectID,
