@@ -57,9 +57,9 @@ jobs:
       - name: Go Benchmark
         run: go test -v -shuffle=on -run=- -bench=. -benchtime=1x ./...
     
-      - name: Upload Coverage
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: ./coverage.out
-          force-coverage-parser: go
+      # - name: Upload Coverage
+      #   uses: codacy/codacy-coverage-reporter-action@v1
+      #   with:
+      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      #     coverage-reports: ./coverage.out
+      #     force-coverage-parser: go
