@@ -102,10 +102,12 @@ github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0
 github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
 github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c h1:+mdjkGKdHQG3305AYmdv1U2eRNDiU2ErMBj1gwrq8eQ=
 github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c/go.mod h1:7rwL4CYBLnjLxUqIJNnCWiEdr3bn6IUYi15bNlnbCCU=
+github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/rollbar/rollbar-go v1.4.5 h1:Z+5yGaZdB7MFv7t759KUR3VEkGdwHjo7Avvf3ApHTVI=
-github.com/rollbar/rollbar-go v1.4.5/go.mod h1:kLQ9gP3WCRGrvJmF0ueO3wK9xWocej8GRX98D8sa39w=
+github.com/rollbar/rollbar-go v1.4.8 h1:SAKy97CHXSFZjxQUxmuBnQmfzCjX54kvQGEQZHEqwuQ=
+github.com/rollbar/rollbar-go v1.4.8/go.mod h1:I/jSI5yHNj7Uy8oxntmCeBSZ1ILvypqRKlFQvZTINgA=
+github.com/rollbar/rollbar-go/errors v1.0.0/go.mod h1:Ie0xEc1Cyj+T4XMO8s0Vf7pMfvSAAy1sb4AYc8aJsao=
 github.com/sirupsen/logrus v1.9.3 h1:dueUQJ1C2q9oE3F7wvmSGAaVtTmUizReu6fjN8uqzbQ=
 github.com/sirupsen/logrus v1.9.3/go.mod h1:naHLuLoDiP4jHNo9R0sCBMtWGeIprob74mVsIT4qYEQ=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
