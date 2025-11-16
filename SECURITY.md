@@ -8,7 +8,8 @@ See below for a list of versions and their current support status for security p
 
 | Version | Supported          |
 | ------- | ------------------ |
-|   2.x.x | :white_check_mark: |
+|   3.x.x | :white_check_mark: |
+|   2.x.x | :warning: Supported until August 1st, 2026 |
 | < 2.0.0 | :x:                |
 
 ## Reporting a Vulnerability

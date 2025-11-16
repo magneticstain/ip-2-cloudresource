@@ -18,6 +18,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/organizations v1.45.1
 	github.com/rollbar/rollbar-go v1.4.8
 	github.com/sirupsen/logrus v1.9.3
+	github.com/spf13/cobra v1.10.1
 	golang.org/x/exp v0.0.0-20240325151524-a685a6edb6d8
 	google.golang.org/api v0.249.0
 )
@@ -38,9 +39,11 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.6 // indirect
 	github.com/googleapis/gax-go/v2 v2.15.0 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
+	github.com/spf13/pflag v1.0.9 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.61.0 // indirect
 	go.opentelemetry.io/otel v1.37.0 // indirect

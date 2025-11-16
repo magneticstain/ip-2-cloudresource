@@ -10,7 +10,7 @@
 [![Codacy Badge - Quality](https://app.codacy.com/project/badge/Grade/5137ec7cf2d14a9c9fc3eac1cd37e0d3)](https://app.codacy.com/gh/magneticstain/ip-2-cloudresource/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Codacy Badge - Coverage](https://app.codacy.com/project/badge/Coverage/5137ec7cf2d14a9c9fc3eac1cd37e0d3)](https://app.codacy.com/gh/magneticstain/ip-2-cloudresource/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 
-![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/magneticstain/ip-2-cloudresource/v2.1.0)
+![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/magneticstain/ip-2-cloudresource/v3.0.0)
 ![GitHub issues](https://img.shields.io/github/issues/magneticstain/ip-2-cloudresource)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/magneticstain/ip-2-cloudresource)
 ![GitHub all releases](https://img.shields.io/github/downloads/magneticstain/ip-2-cloudresource/total)
@@ -51,7 +51,8 @@ IP-2-CloudResource (IP2CR) is a tool used for correlating a cloud IP address wit
 
 - [X] Docker Support ( [Issue #367](https://github.com/magneticstain/ip-2-cloudresource/issues/367) )
 - [X] GCP Support ( [Issue #361](https://github.com/magneticstain/ip-2-cloudresource/issues/361) )
-- [ ] Azure Support ( [Issue #362](https://github.com/magneticstain/ip-2-cloudresource/issues/362) )
+- [X] Azure Support ( [Issue #362](https://github.com/magneticstain/ip-2-cloudresource/issues/362) )
+- [ ] Improved CLI UX ( [Issue #362](https://github.com/magneticstain/ip-2-cloudresource/issues/428) )
 
 ## Prerequisites
 
@@ -132,6 +133,7 @@ cd /opt/ip2cr/
 
 After installing, run the `ip2cr` binary to see available parameters:
 
+<!-- markdownlint-disable MD010 -->
 ```bash
 > ip2cr --help
 Usage of ip2cr:
