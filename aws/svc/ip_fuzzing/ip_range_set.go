@@ -22,7 +22,7 @@ func FetchIPRanges() (awsipprefix.RawAwsIPRangeJSON, error) {
 	} else if resp.StatusCode != http.StatusOK {
 		return ipRangeData, fmt.Errorf("received HTTP status %s when fetching IP ranges from remote URL :: [ URL: %s ]", resp.Status, awsIPRangeURL)
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() //nolint:errcheck
 
 	// I know this isn't the most efficient way to do this, but for some reason, I could not get json.Decoder() working here
 	jsonData, err := io.ReadAll(resp.Body)
