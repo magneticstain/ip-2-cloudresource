@@ -44,9 +44,9 @@ func TestOutputResults_JSON(t *testing.T) {
 	OutputResults(r, false, true, true)
 
 	// close writer and read output
-	wPipe.Close()
+	_ = wPipe.Close()
 	var buf bytes.Buffer
-	io.Copy(&buf, rPipe)
+	_, _ = io.Copy(&buf, rPipe)
 	out := strings.TrimSpace(buf.String())
 	if out == "" {
 		t.Fatalf("expected json output, got empty")

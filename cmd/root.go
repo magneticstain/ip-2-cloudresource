@@ -116,7 +116,9 @@ func init() {
 	rootCmd.Flags().StringVar(&orgSearchOrgUnitID, "org-search-ou-id", "", "The ID of the AWS Organizations Organizational Unit to target when performing a search")
 	rootCmd.Flags().BoolVar(&networkMapping, "network-mapping", false, "If enabled, generate a network map associated with the identified resource if it's found")
 
-	rootCmd.MarkFlagRequired("ipaddr")
+	if err := rootCmd.MarkFlagRequired("ipaddr"); err != nil {
+		panic(err)
+	}
 }
 
 // Execute is exported so main.go can call from cmd package
