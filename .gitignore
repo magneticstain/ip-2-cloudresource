@@ -24,6 +24,8 @@ dist/
 
 .vscode/
 
-
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
+
+# Codacy scripts
+.codacy
