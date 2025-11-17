@@ -5,9 +5,10 @@
 
 name: Build and Test - Release Branches
 
+permissions:
+  contents: read
+
 on:
-  # push:
-  #   branches: [ release-* ]
   pull_request:
     branches: [ release-* ]
 
@@ -57,9 +58,9 @@ jobs:
       - name: Go Benchmark
         run: go test -v -shuffle=on -run=- -bench=. -benchtime=1x ./...
     
-      - name: Upload Coverage
-        uses: codacy/codacy-coverage-reporter-action@89d6c85cfafaec52c72b6c5e8b2878d33104c699  # v1.3.0
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: ./coverage.out
-          force-coverage-parser: go
+      # - name: Upload Coverage
+      #   uses: codacy/codacy-coverage-reporter-action@89d6c85cfafaec52c72b6c5e8b2878d33104c699  # v1.3.0
+      #   with:
+      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      #     coverage-reports: ./coverage.out
+      #     force-coverage-parser: go
