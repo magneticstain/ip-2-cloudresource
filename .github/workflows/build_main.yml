@@ -5,6 +5,9 @@
 
 name: Build and Test - Main Branch
 
+permissions:
+  contents: read
+
 on:
   pull_request:
     branches: [ main ]
