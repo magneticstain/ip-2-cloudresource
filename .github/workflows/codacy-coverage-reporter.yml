@@ -2,6 +2,9 @@
 
 name: Codacy Coverage Reporter
 
+permissions:
+  contents: read
+
 # secrets don't propogate to forks (e.g. dependabot PRs), so we will need to ignore them
 on:
   push:
