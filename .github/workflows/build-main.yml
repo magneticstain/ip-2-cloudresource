@@ -13,9 +13,9 @@ on:
     branches:
       - main
       - release-*
-    types:
-      - opened
-      - reopened
+    # types:
+    #   - opened
+    #   - reopened
   schedule:
     - cron: '0 0 * * 0'  # run a build every Sunday at 00:00 to catch gremlins
 
