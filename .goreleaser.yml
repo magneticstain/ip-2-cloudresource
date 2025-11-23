@@ -1,3 +1,7 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/goreleaser/goreleaser/v2.12.7/www/docs/static/schema.json
+
+project_name: ip-2-cloudresource
+
 before:
   hooks:
     - go mod tidy
@@ -12,9 +16,15 @@ builds:
       - darwin
     goarch:
       - amd64
+      - arm64
+
+# REF: https://goreleaser.com/customization/universalbinaries/
+universal_binaries:
+  - replace: true
 
 archives:
   - format: tar.gz
+    meta: true  # includes source code in the archive
     # this name template makes the OS and Arch compatible with the results of uname.
     name_template: >-
       {{ .ProjectName }}_
@@ -28,47 +38,9 @@ archives:
     format_overrides:
     - goos: windows
       format: zip
+
 checksum:
-  name_template: 'checksums.txt'
-snapshot:
-  name_template: "{{ incpatch .Version }}-next"
-changelog:
-  sort: asc
-  filters:
-    exclude:
-      - '^[Dd]eploy: '
-      - '^[Mm]inor: '
-      - '^[Tt]est: '
-      - '^Merge '
-
-release:
-  github:
-    owner: magneticstain
-    name: ip-2-cloudresource
-  prerelease: auto
-brews:
-  -
-    name: ip2cr
-
-    commit_author:
-      name: magneticstain
-      email: magneticstain@gmail.com
-
-    commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
-
-    folder: Formula
-    homepage: "https://github.com/magneticstain/ip-2-cloudresource"
-    description: "IP-2-CloudResource: correlate an IP address with its associated cloud resource"
-    license: "MIT"
-
-    test: |
-      system "#{bin}/ip2cr --help"
-
-    repository:
-      owner: magneticstain
-      name: homebrew-ip2cr
-
-      token: "{{ .Env.HOMEBREW_GITHUB_TOKEN }}"
+  name_template: "checksums.txt"
 
 dockers:
   -
@@ -85,3 +57,81 @@ dockers:
       - "ghcr.io/magneticstain/{{.ProjectName}}:{{ .Tag }}"
 
     dockerfile: "Dockerfile-release"
+
+docker_digest:
+  name_template: "digests.txt"
+
+sboms:
+  disable: false
+  artifacts: any
+
+report_sizes: true
+
+binary_signs:
+  - {}
+
+signs:
+  - artifacts: all
+
+# snapshot:
+#   name_template: "{{ incpatch .Version }}-next"
+
+release:
+  github:
+    owner: magneticstain
+    name: ip-2-cloudresource
+  prerelease: auto
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^[Dd]eploy: '
+      - '^[Mm]inor: '
+      - '^[Tt]est: '
+      - '^Merge '
+
+# brews:
+#   -
+#     name: ip2cr
+
+#     commit_author:
+#       name: magneticstain
+#       email: magneticstain@gmail.com
+
+#     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
+
+#     folder: Formula
+#     homepage: "https://github.com/magneticstain/ip-2-cloudresource"
+#     description: "IP-2-CloudResource: correlate an IP address with its associated cloud resource"
+#     license: "MIT"
+
+#     test: |
+#       system "#{bin}/ip2cr --help"
+
+#     repository:
+#       owner: magneticstain
+#       name: homebrew-ip2cr
+
+#       token: "{{ .Env.HOMEBREW_GITHUB_TOKEN }}"
+
+homebrew_casks:
+  -
+    name: ip2cr
+
+    commit_author:
+      name: magneticstain
+      email: magneticstain@gmail.com
+      signing:
+        enabled: true
+
+    commit_msg_template: "Brew cask update for {{ .ProjectName }} version {{ .Tag }}"
+
+    homepage: "https://github.com/magneticstain/ip-2-cloudresource"
+    description: "IP-2-CloudResource: correlate an IP address with its associated cloud resource"
+
+    repository:
+      owner: magneticstain
+      name: homebrew-ip2cr
+
+      token: "{{ .Env.HOMEBREW_GITHUB_TOKEN }}"

@@ -12,6 +12,9 @@ jobs:
     permissions:
       contents: write  # needed to create GH Release
       packages: write  # needed to push GHCR image
+      # Give the workflow permission to write attestations.
+      id-token: write
+      attestations: write
 
     outputs:
       hashes: ${{ steps.hash.outputs.hashes }}
@@ -49,6 +52,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HOMEBREW_GITHUB_TOKEN: ${{ secrets.HOMEBREW_GITHUB_TOKEN }}
+      
+      # After GoReleaser runs, attest all binary and docker image checksums:
+      # REF: https://goreleaser.com/customization/attestations/
+      - uses: actions/attest-build-provenance@v3
+        with:
+          subject-checksums: ./dist/checksums.txt
+      - uses: actions/attest-build-provenance@v3
+        # snapshots won't push docker images
+        if: startsWith(github.ref, 'refs/tags/v')
+        with:
+          subject-checksums: ./dist/digests.txt
       
       - name: Generate SLSA subject
         id: hash
