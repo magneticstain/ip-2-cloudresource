@@ -1,0 +1,37 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.2.0
+  hooks:
+    - id: trailing-whitespace
+    - id: end-of-file-fixer
+    - id: check-yaml
+    - id: check-added-large-files
+    - id: mixed-line-ending
+
+- repo: https://github.com/crate-ci/typos
+  rev: v1.39.2
+  hooks:
+    - id: typos
+
+- repo: https://github.com/rhysd/actionlint
+  rev: v1.7.9
+  hooks:
+    - id: actionlint
+
+- repo: https://github.com/DavidAnson/markdownlint-cli2
+  rev: v0.19.1
+  hooks:
+    - id: markdownlint-cli2
+
+# ==============================
+# LOCAL HOOKS
+# REF: https://github.com/trufflesecurity/trufflehog/blob/939fabea556a4637a66ab79fb8fa5d0e8a436077/PreCommit.md#repository-specific-setup
+- repo: local
+  rev: v1.0.0
+  hooks:
+    - id: trufflehog
+      name: TruffleHog
+      description: Detect secrets in your data.
+      entry: bash -c 'trufflehog git file://. --since-commit HEAD --results=verified,unknown --fail'
+      language: system
+      stages: ["pre-commit", "pre-push"]
