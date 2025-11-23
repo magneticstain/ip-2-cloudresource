@@ -1,7 +1,7 @@
 # REFS:
 # https://github.com/actions/starter-workflows/blob/main/ci/go.yml
 # https://github.com/mvdan/github-actions-golang
-# 
+#
 
 name: Build and Test - Main Branch
 
@@ -12,13 +12,15 @@ on:
   pull_request:
     branches:
       - main
-    branches-ignore:
-      - dependabot/**  # skip dependabot PRs on main branch; handled in feature/release workflow
+    types:
+      - opened
   schedule:
     - cron: '0 0 * * 0'  # run a build every Sunday at 00:00 to catch gremlins
 
 jobs:
   build:
+    # skip dependabot PRs on main branch; handled in feature/release workflow
+    if: startsWith(github.head_ref, 'dependabot/') == false
     strategy:
       matrix:
         go-version: ['stable', 'oldstable']
@@ -36,7 +38,7 @@ jobs:
 
       - name: Check code formatting
         run: gofmt -s -w . && git diff --exit-code
-    
+
       - name: Ensure dep definitions are up-to-date
         run: go mod tidy && git diff --exit-code
 

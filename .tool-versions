@@ -1,0 +1,6 @@
+actionlint 1.7.9
+awscli 2.32.3
+golang 1.25.4
+markdownlint-cli2 0.19.1
+pre-commit 4.5.0
+trivy 0.67.2

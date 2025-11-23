@@ -8,6 +8,20 @@ repos:
     - id: check-added-large-files
     - id: mixed-line-ending
 
+- repo: https://github.com/mxab/pre-commit-trivy.git
+  rev: v0.16.0
+  hooks:
+    - id: trivyfs-docker
+      args:
+        - --severity=CRITICAL,HIGH,MEDIUM
+        - --quiet
+        - .
+    - id: trivyconfig-docker
+      args:
+        - --severity=CRITICAL,HIGH,MEDIUM
+        - --quiet
+        - .
+
 - repo: https://github.com/codespell-project/codespell
   rev: v2.4.1
   hooks:
@@ -39,7 +53,7 @@ repos:
     - id: trufflehog
       name: TruffleHog
       description: Detect secrets in your data.
-      entry: bash -c 'trufflehog git file://. --since-commit HEAD --results=verified,unknown --fail'
+      entry: bash -c 'trufflehog git file://. --since-commit HEAD --results=verified,unknown --fail --no-update'
       language: system
       stages:
         - pre-commit

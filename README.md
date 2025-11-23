@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 <!-- markdownlint-disable-next-line MD041 -->
 ![IP2CR Logo](./assets/logo-transparent.png)
 
@@ -52,7 +53,7 @@ IP-2-CloudResource (IP2CR) is a tool used for correlating a cloud IP address wit
 - [X] Docker Support ( [Issue #367](https://github.com/magneticstain/ip-2-cloudresource/issues/367) )
 - [X] GCP Support ( [Issue #361](https://github.com/magneticstain/ip-2-cloudresource/issues/361) )
 - [X] Azure Support ( [Issue #362](https://github.com/magneticstain/ip-2-cloudresource/issues/362) )
-- [ ] Improved CLI UX ( [Issue #362](https://github.com/magneticstain/ip-2-cloudresource/issues/428) )
+- [X] Improved CLI UX ( [Issue #362](https://github.com/magneticstain/ip-2-cloudresource/issues/428) )
 
 ## Prerequisites
 
@@ -174,8 +175,8 @@ A large number of enterprises configure their IAM architecture such that users l
 Instead, this will present itself as a fatal error within IP2CR, e.g.:
 
 ```text
-INFO[0000] starting IP-2-CloudResource                  
-DEBU[0000] generating AWS connection                    
+INFO[0000] starting IP-2-CloudResource
+DEBU[0000] generating AWS connection
 FATA[0000] assume role with MFA enabled, but AssumeRoleTokenProvider session option not set.
 ```
 
