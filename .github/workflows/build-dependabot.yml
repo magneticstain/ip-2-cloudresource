@@ -1,11 +1,9 @@
 # REFS:
 # https://github.com/actions/starter-workflows/blob/main/ci/go.yml
 # https://github.com/mvdan/github-actions-golang
-# 
+#
 
-# This action runs on feature, release, and Dependabot PR's to ensure code quality before merging to main
-
-name: Build and Test - Feature Branches
+name: Build and Test - Dependabot Updates
 
 permissions:
   contents: read
@@ -13,12 +11,14 @@ permissions:
 on:
   pull_request:
     branches:
-      - feature-*
-      - release-*
-      - dependabot/**
+      - main
+    types:
+      - opened
 
 jobs:
   build:
+    # be sure to only target dependabot PRs on main branch
+    if: startsWith(github.head_ref, 'dependabot/')
     strategy:
       matrix:
         go-version: ['stable', 'oldstable']
@@ -36,7 +36,7 @@ jobs:
 
       - name: Check code formatting
         run: gofmt -s -w . && git diff --exit-code
-    
+
       - name: Ensure dep definitions are up-to-date
         run: go mod tidy && git diff --exit-code
 
