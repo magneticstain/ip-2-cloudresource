@@ -18,7 +18,7 @@ on:
 jobs:
   build:
     # be sure to only target dependabot PRs on main branch
-    if: startsWith(github.head_ref, 'dependabot/')
+    if: startsWith(github.head_ref, 'refs/heads/dependabot/')
     strategy:
       matrix:
         go-version: ['stable', 'oldstable']
