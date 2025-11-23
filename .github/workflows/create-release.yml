@@ -1,4 +1,4 @@
-name: Cut New Release
+name: Deploy New Release
 
 #
 # Currently performs the following:
@@ -53,8 +53,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: goreleaser/goreleaser-action@e435ccd777264be153ace6237001ef4d979d3a7a  # v6.4.0
-        id: run-goreleaser
+      - name: Verify goreleaser Config
+        uses: goreleaser/goreleaser-action@e435ccd777264be153ace6237001ef4d979d3a7a  # v6.4.0
+        id: run-goreleaser-check
+        with:
+          distribution: goreleaser
+          version: latest
+          args: check
+
+      - name: Deploy Release
+        uses: goreleaser/goreleaser-action@e435ccd777264be153ace6237001ef4d979d3a7a  # v6.4.0
+        id: run-goreleaser-release
         with:
           distribution: goreleaser
           version: latest
@@ -77,7 +86,7 @@ jobs:
       - name: Generate SLSA subject
         id: hash
         env:
-          ARTIFACTS: "${{ steps.run-goreleaser.outputs.artifacts }}"
+          ARTIFACTS: "${{ steps.run-goreleaser-release.outputs.artifacts }}"
         run: |
           set -euo pipefail
 
