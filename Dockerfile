@@ -17,7 +17,7 @@ RUN chown -R $SVC_ACCT_USER_NAME:$SVC_ACCT_GROUP_NAME /app
 
 WORKDIR /app
 
-USER $SVC_ACCT_USER_NAME
+USER $SVC_ACCT_USER_NAME:$SVC_ACCT_GROUP_NAME
 
 COPY go.mod go.sum ./
 RUN go mod download && go mod verify
