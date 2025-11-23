@@ -22,7 +22,7 @@ on:
 jobs:
   build:
     # skip dependabot PRs on main branch; handled in feature/release workflow
-    # if: startsWith(github.head_ref, 'refs/heads/dependabot/') == false
+    if: startsWith(github.head_ref, 'refs/heads/dependabot/') == false
     strategy:
       matrix:
         go-version: ['stable', 'oldstable']
