@@ -10,7 +10,10 @@ permissions:
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+    branches-ignore:
+      - dependabot/**  # skip dependabot PRs on main branch; handled in feature/release workflow
   schedule:
     - cron: '0 0 * * 0'  # run a build every Sunday at 00:00 to catch gremlins
 
@@ -59,10 +62,3 @@ jobs:
 
       - name: Go Benchmark
         run: go test -v -shuffle=on -run=- -bench=. -benchtime=1x ./...
-    
-      # - name: Upload Coverage
-      #   uses: codacy/codacy-coverage-reporter-action@v1
-      #   with:
-      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-      #     coverage-reports: ./coverage.out
-      #     force-coverage-parser: go

@@ -1,4 +1,14 @@
-name: Release
+name: Create New Release
+
+#
+# Currently performs the following:
+# - Uses GoReleaser to create a new release based on the tag pushed
+# - Publishes binaries to GitHub Releases
+# - Publishes Docker images to Docker Hub and GitHub Container Registry
+# - Signs all binaries and Docker images
+# - Attests all binaries and Docker images
+# - Generates SLSA provenance for all artifacts
+#
 
 on:
   push:

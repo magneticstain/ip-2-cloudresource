@@ -3,6 +3,8 @@
 # https://github.com/mvdan/github-actions-golang
 # 
 
+# This action runs on feature, release, and Dependabot PR's to ensure code quality before merging to main
+
 name: Build and Test - Feature Branches
 
 permissions:
@@ -10,13 +12,16 @@ permissions:
 
 on:
   pull_request:
-    branches: [ feature_* ]
+    branches:
+      - feature-*
+      - release-*
+      - dependabot/**
 
 jobs:
   build:
     strategy:
       matrix:
-        go-version: ['stable']
+        go-version: ['stable', 'oldstable']
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     env:
@@ -57,10 +62,3 @@ jobs:
 
       - name: Go Benchmark
         run: go test -v -shuffle=on -run=- -bench=. -benchtime=1x ./...
-    
-      # - name: Upload Coverage
-      #   uses: codacy/codacy-coverage-reporter-action@89d6c85cfafaec52c72b6c5e8b2878d33104c699  # v1.3.0
-      #   with:
-      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-      #     coverage-reports: ./coverage.out
-      #     force-coverage-parser: go
