@@ -46,8 +46,8 @@ github.com/aws/aws-sdk-go-v2/internal/ini v1.8.4 h1:WKuaxf++XKWlHWu9ECbMlha8WOEG
 github.com/aws/aws-sdk-go-v2/internal/ini v1.8.4/go.mod h1:ZWy7j6v1vWGmPReu0iSGvRiise4YI5SkR3OHKTZ6Wuc=
 github.com/aws/aws-sdk-go-v2/service/cloudfront v1.56.2 h1:1Ipv5nooFuWg3iPGQPeh1WkUSJ96QFTqZQKMHPw9WHc=
 github.com/aws/aws-sdk-go-v2/service/cloudfront v1.56.2/go.mod h1:UtP1sSXq2FHHO7Lvn4mNplFS4x7oP4+uMIJIQ8+3JyY=
-github.com/aws/aws-sdk-go-v2/service/ec2 v1.253.0 h1:x0v1n45AT+uZvNoQI8xtegVUOZoQIF+s9qwNcl7Ivyg=
-github.com/aws/aws-sdk-go-v2/service/ec2 v1.253.0/go.mod h1:MXJiLJZtMqb2dVXgEIn35d5+7MqLd4r8noLen881kpk=
+github.com/aws/aws-sdk-go-v2/service/ec2 v1.274.0 h1:Q2+WD4KSVRkd27QxD9I30nM3O7B4WYwE+ua5dm2NJY0=
+github.com/aws/aws-sdk-go-v2/service/ec2 v1.274.0/go.mod h1:QrV+/GjhSrJh6MRRuTO6ZEg4M2I0nwPakf0lZHSrE1o=
 github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing v1.24.4 h1:V5YvSMQwZklktzYeOOhYdptx7rP650XP3RnxwNu1UEQ=
 github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing v1.24.4/go.mod h1:aYygRYqRxmLGrxRxAisgNarwo4x8bcJG14rh4r57VqE=
 github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.54.1 h1:SVvYK137B8mS8W6c4rbu/eh3PGdz6ZOEIU/rHeUCRYM=
@@ -56,8 +56,8 @@ github.com/aws/aws-sdk-go-v2/service/iam v1.47.5 h1:o2gRl9x3A/Sp6q4oHinnrS+2AC9U
 github.com/aws/aws-sdk-go-v2/service/iam v1.47.5/go.mod h1:0y7wFmnEg9xTZxjmr2gHQ4xOHpCfrt70lFWTOAkrij4=
 github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.13.3 h1:x2Ibm/Af8Fi+BH+Hsn9TXGdT+hKbDd5XOTZxTMxDk7o=
 github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.13.3/go.mod h1:IW1jwyrQgMdhisceG8fQLmQIydcT/jWY21rFhzgaKwo=
-github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.13.13 h1:kDqdFvMY4AtKoACfzIGD8A0+hbT41KTKF//gq7jITfM=
-github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.13.13/go.mod h1:lmKuogqSU3HzQCwZ9ZtcqOc5XGMqtDK7OIc2+DxiUEg=
+github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.13.14 h1:FIouAnCE46kyYqyhs0XEBDFFSREtdnr8HQuLPQPLCrY=
+github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.13.14/go.mod h1:UTwDc5COa5+guonQU8qBikJo1ZJ4ln2r1MkF7Dqag1E=
 github.com/aws/aws-sdk-go-v2/service/organizations v1.45.1 h1:j5Cyl8uJi7rF8FczVWWVI0A7WQgqN+ED2OSRe5IZCec=
 github.com/aws/aws-sdk-go-v2/service/organizations v1.45.1/go.mod h1:ot0vk4sn+d7lY8g6oI91XE41Vz74ZNnTH+7UrsIsJVg=
 github.com/aws/aws-sdk-go-v2/service/sso v1.30.3 h1:NjShtS1t8r5LUfFVtFeI8xLAHQNTa7UI0VawXlrBMFQ=
