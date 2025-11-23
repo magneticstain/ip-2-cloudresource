@@ -23,13 +23,13 @@ repos:
   hooks:
     - id: markdownlint-cli2
 
-- repo: https://github.com/commitizen-tools/commitizen
-  rev: v4.10.0
-  hooks:
-    - id: commitizen
-    - id: commitizen-branch
-      stages:
-        - pre-push
+# - repo: https://github.com/commitizen-tools/commitizen
+#   rev: v4.10.0
+#   hooks:
+#     - id: commitizen
+#     - id: commitizen-branch
+#       stages:
+#         - pre-push
 
 # ==============================
 # LOCAL HOOKS
