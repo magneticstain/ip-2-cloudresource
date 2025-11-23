@@ -13,16 +13,16 @@ on:
     branches:
       - main
       - release-*
-    types:
-      - opened
-      - reopened
+    # types:
+    #   - opened
+    #   - reopened
   schedule:
     - cron: '0 0 * * 0'  # run a build every Sunday at 00:00 to catch gremlins
 
 jobs:
   build:
     # skip dependabot PRs on main branch; handled in feature/release workflow
-    # if: startsWith(github.head_ref, 'refs/heads/dependabot/') == false
+    if: startsWith(github.head_ref, 'refs/heads/dependabot/') == false
     strategy:
       matrix:
         go-version: ['stable', 'oldstable']
