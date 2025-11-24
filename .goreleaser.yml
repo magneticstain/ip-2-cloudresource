@@ -69,8 +69,8 @@ sboms:
 
 report_sizes: true
 
-binary_signs:
-  - {}
+# binary_signs:
+#   - {}
 
 signs:
   - artifacts: all
