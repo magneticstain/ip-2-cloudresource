@@ -18,7 +18,7 @@ builds:
       - darwin
     goarch:
       - amd64
-      - arm64
+      # - arm64
 
 # REF: https://goreleaser.com/customization/universalbinaries/
 universal_binaries:
@@ -27,7 +27,7 @@ universal_binaries:
 archives:
   - formats: tar.gz
     meta: true  # includes source code in the archive
-    # # this name template makes the OS and Arch compatible with the results of uname.
+    # this name template makes the OS and Arch compatible with the results of uname.
     # name_template: >-
     #   {{ .ProjectName }}_
     #   {{- title .Os }}_
