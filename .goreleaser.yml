@@ -18,15 +18,15 @@ builds:
       - darwin
     goarch:
       - amd64
-      # - arm64
+      - arm64
 
 # REF: https://goreleaser.com/customization/universalbinaries/
-universal_binaries:
-  - replace: true
+# universal_binaries:
+#   - replace: true
 
 archives:
   - formats: tar.gz
-    meta: true  # includes source code in the archive
+    # meta: true  # includes source code in the archive
     # this name template makes the OS and Arch compatible with the results of uname.
     # name_template: >-
     #   {{ .ProjectName }}_
@@ -72,11 +72,11 @@ report_sizes: true
 # binary_signs:
 #   - {}
 
-signs:
-  - artifacts: all
+# signs:
+#   - artifacts: all
 
-# snapshot:
-#   name_template: "{{ incpatch .Version }}-next"
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
 
 release:
   github:
