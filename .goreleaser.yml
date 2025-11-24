@@ -76,7 +76,7 @@ report_sizes: true
 #   - artifacts: all
 
 snapshot:
-  name_template: "{{ incpatch .Version }}-next"
+  version_template: "{{ incpatch .Version }}-next"
 
 release:
   github:
