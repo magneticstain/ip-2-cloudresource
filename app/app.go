@@ -14,7 +14,7 @@ import (
 	"github.com/magneticstain/ip-2-cloudresource/utils"
 )
 
-const APP_ENV = "development"
+const APP_ENV = "production"
 const APP_VER = "v3.1.3"
 
 func GetSupportedPlatforms() []string {
