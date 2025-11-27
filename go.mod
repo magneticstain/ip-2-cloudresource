@@ -12,7 +12,7 @@ require (
 	github.com/aws/aws-sdk-go-v2 v1.40.0
 	github.com/aws/aws-sdk-go-v2/config v1.32.2
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.274.0
-	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing v1.24.4
+	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing v1.33.15
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.54.1
 	github.com/aws/aws-sdk-go-v2/service/iam v1.52.1
 	github.com/aws/aws-sdk-go-v2/service/organizations v1.48.0
@@ -41,7 +41,6 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.7 // indirect
 	github.com/googleapis/gax-go/v2 v2.15.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
 	github.com/spf13/pflag v1.0.9 // indirect
