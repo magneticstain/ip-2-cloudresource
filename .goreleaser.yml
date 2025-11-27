@@ -4,6 +4,9 @@ version: 2
 
 project_name: ip-2-cloudresource
 
+#######################
+# Binaries
+#######################
 before:
   hooks:
     - go mod tidy
@@ -26,16 +29,6 @@ builds:
 
 archives:
   - formats: tar.gz
-    # meta: true  # includes source code in the archive
-    # this name template makes the OS and Arch compatible with the results of uname.
-    # name_template: >-
-    #   {{ .ProjectName }}_
-    #   {{- title .Os }}_
-    #   {{- if eq .Arch "amd64" }}x86_64
-    #   {{- else if eq .Arch "386" }}i386
-    #   {{- else }}{{ .Arch }}{{ end }}
-    #   {{- if .Arm }}v{{ .Arm }}{{ end }}_
-    #   {{- .Tag}}
     # use zip for windows archives
     format_overrides:
     - goos: windows
@@ -44,6 +37,9 @@ archives:
 checksum:
   name_template: "checksums.txt"
 
+#######################
+# Docker images
+#######################
 dockers:
   -
     image_templates:
@@ -63,11 +59,17 @@ dockers:
 docker_digest:
   name_template: "digests.txt"
 
+#######################
+# Build Artifacts
+#######################
 sboms:
   - disable: false
   # - artifacts: "any"
 
 report_sizes: true
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
 
 # binary_signs:
 #   - {}
@@ -75,9 +77,10 @@ report_sizes: true
 # signs:
 #   - artifacts: all
 
-snapshot:
-  version_template: "{{ incpatch .Version }}-next"
 
+#######################
+# Release
+#######################
 release:
   github:
     owner: magneticstain
@@ -92,30 +95,6 @@ changelog:
       - '^[Mm]inor: '
       - '^[Tt]est: '
       - '^Merge '
-
-# brews:
-#   -
-#     name: ip2cr
-
-#     commit_author:
-#       name: magneticstain
-#       email: magneticstain@gmail.com
-
-#     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
-
-#     folder: Formula
-#     homepage: "https://github.com/magneticstain/ip-2-cloudresource"
-#     description: "IP-2-CloudResource: correlate an IP address with its associated cloud resource"
-#     license: "MIT"
-
-#     test: |
-#       system "#{bin}/ip2cr --help"
-
-#     repository:
-#       owner: magneticstain
-#       name: homebrew-ip2cr
-
-#       token: "{{ .Env.HOMEBREW_GITHUB_TOKEN }}"
 
 homebrew_casks:
   -
