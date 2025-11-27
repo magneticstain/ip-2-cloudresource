@@ -7,7 +7,6 @@ name: Cut New Release
 # - Publishes Docker images to Docker Hub and GitHub Container Registry
 # - Signs all binaries and Docker images
 # - Attests all binaries and Docker images
-# - Generates SLSA provenance for all artifacts
 #
 
 on:
@@ -25,9 +24,6 @@ jobs:
       # needed to write attestations.
       id-token: write
       attestations: write
-
-    # outputs:
-    #   hashes: ${{ steps.hash.outputs.hashes }}
 
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
@@ -75,30 +71,3 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         with:
           subject-checksums: ./dist/digests.txt
-
-  #     - name: Generate SLSA subject
-  #       id: hash
-  #       env:
-  #         ARTIFACTS: "${{ steps.run-goreleaser.outputs.artifacts }}"
-  #       run: |
-  #         set -euo pipefail
-
-  #         hashes=$(echo $ARTIFACTS | jq --raw-output '.[] | {name, "digest": (.extra.Digest // .extra.Checksum)} | select(.digest) | {digest} + {name} | join("  ") | sub("^sha256:";"")' | base64 -w0)
-
-  #         if test "$hashes" = ""; then # goreleaser < v1.13.0
-  #           checksum_file=$(echo "$ARTIFACTS" | jq -r '.[] | select (.type=="Checksum") | .path')
-  #           hashes=$(cat $checksum_file | base64 -w0)
-  #         fi
-
-  #         echo "hashes=$hashes" >> $GITHUB_OUTPUT
-
-  # provenance:
-  #   needs: [goreleaser]
-  #   permissions:
-  #     actions: read # To read the workflow path.
-  #     id-token: write # To sign the provenance.
-  #     contents: write # To add assets to a release.
-  #   uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@f7dd8c54c2067bafc12ca7a55595d5ee9b75204a  # v2.1.0
-  #   with:
-  #     base64-subjects: "${{ needs.goreleaser.outputs.hashes }}"
-  #     upload-assets: true # upload to a new release
