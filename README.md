@@ -57,6 +57,15 @@ IP2CR requires Go 1.22 or later. Releases are tested against the current stable 
 
 ## Install
 
+### Attestation Verification
+
+It is recommended that users verify the attestations for all ip-2-cloudresource files they download, including the archives, binaries, and Docker images. You can do that using [the GitHub CLI and its `attestation` features](https://cli.github.com/manual/gh_attestation_verify).
+
+```bash
+gh attestation verify --owner magneticstain <FILENAME>
+gh attestation verify --owner magneticstain <DOCKER_IMAGE>
+```
+
 ### Docker
 
 The most portable way to install and run IP2CR is by using Docker.
