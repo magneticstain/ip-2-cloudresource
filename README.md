@@ -25,35 +25,23 @@ IP-2-CloudResource (IP2CR) is a tool used for correlating a cloud IP address wit
 ## Features
 
 - Built for speed and ease-of-use while only generating a small resource footprint
-- Supports finding IPs for:
-  - CloudFront
-  - ALBs & NLBs (and probably GLBs, but hasn't been tested yet)
-  - Classic ELBs
-  - EC2 instances with public IP addresses
+- Supports finding IPs across multiple cloud platforms:
+  - **AWS**: CloudFront, ALBs & NLBs, Classic ELBs, EC2 instances with public IP addresses
+  - **GCP**: Compute Engine instances
+  - **Azure**: Virtual Machines, CDN endpoints, Load Balancers
 - Support for searching through accounts within an AWS Organization
 - IPv6 support
 - JSON output to easily integrate with scripts
-- Ability to map the network path taken from the internet to the identified resource
+- Ability to map the network path taken from the internet to the identified resource (currently AWS-only)
 
 ### Roadmap
 
-#### 2023
+#### 2025
 
-- [X] EC2 support ( [Issue #11](https://github.com/magneticstain/ip-2-cloudresource/issues/11) )
-- [X] Classic ELB support ( [Issue #29](https://github.com/magneticstain/ip-2-cloudresource/issues/29) )
-- [X] JSON output ( [Issue #37](https://github.com/magneticstain/ip-2-cloudresource/issues/37) )
-- [X] IP service fuzzing (perform a reverse DNS lookup to identify the services to search, leading to faster results)  ( [Issue #39](https://github.com/magneticstain/ip-2-cloudresource/issues/39) )
-- [X] Support for installing using Homebrew ( [Issue #77](https://github.com/magneticstain/ip-2-cloudresource/issues/77) )
-- [X] AWS Organizations support ( [Issue #38](https://github.com/magneticstain/ip-2-cloudresource/issues/38) )
-- [X] Add Support For Concurrent Account-Based Resource Searches When Running With AWS Org Support ( [Issue #141](https://github.com/magneticstain/ip-2-cloudresource/issues/141) )
-- [X] Network path calculation ( [Issue #44](https://github.com/magneticstain/ip-2-cloudresource/issues/44) )
-
-#### 2024
-
-- [X] Docker Support ( [Issue #367](https://github.com/magneticstain/ip-2-cloudresource/issues/367) )
-- [X] GCP Support ( [Issue #361](https://github.com/magneticstain/ip-2-cloudresource/issues/361) )
-- [X] Azure Support ( [Issue #362](https://github.com/magneticstain/ip-2-cloudresource/issues/362) )
-- [X] Improved CLI UX ( [Issue #362](https://github.com/magneticstain/ip-2-cloudresource/issues/428) )
+- [ ] Add IP Fuzzing Support to All Supported Cloud Providers ([#426](https://github.com/magneticstain/ip-2-cloudresource/issues/426))
+- [ ] Extend Network Mapping Feature to All Supported Cloud Platforms ([#427](https://github.com/magneticstain/ip-2-cloudresource/issues/427))
+- [ ] Add Support for Alibaba Cloud ([#557](https://github.com/magneticstain/ip-2-cloudresource/issues/557))
+- [ ] Add Support for Digital Ocean ([#558](https://github.com/magneticstain/ip-2-cloudresource/issues/558))
 
 ## Prerequisites
 
@@ -65,7 +53,7 @@ IP-2-CloudResource (IP2CR) is a tool used for correlating a cloud IP address wit
 
 ### Go
 
-IP2CR supports running on n-1 minor versions of Golang, aka [stable and old-stable](https://go.dev/dl/#stable).
+IP2CR requires Go 1.22 or later. It is tested against the current stable and previous stable versions of Go.
 
 ## Install
 
@@ -220,13 +208,13 @@ ip2cr -ipaddr=1.2.3.4 -org-search -org-search-role-name=ip2cr-xaccount-role
 If you need to assume a target role to read AWS Organizations metadata, you can add another parameter with the target role ARN:
 
 ```bash
-ip2cr -ipaddr=1.2.3.4 -org-search -org-search-role-name=ip2cr-xaccount-role -org-search-role-name=arn:aws:iam::123456789012:role/org-manage
+ip2cr -ipaddr=1.2.3.4 -org-search -org-search-role-name=ip2cr-xaccount-role -org-search-xaccount-role-arn=arn:aws:iam::123456789012:role/org-manage
 ```
 
 If you know which AWS Organizations OU contains the account the target IP is in, you can specify it by adding the `-org-search-ou-id` parameter:
 
 ```bash
-ip2cr -ipaddr=1.2.3.4 -org-search -org-search-role-name=ip2cr-xaccount-role -org-search-role-name=arn:aws:iam::123456789012:role/org-manage -org-search-ou-id=ou-abcd-12345
+ip2cr -ipaddr=1.2.3.4 -org-search -org-search-role-name=ip2cr-xaccount-role -org-search-xaccount-role-arn=arn:aws:iam::123456789012:role/org-manage -org-search-ou-id=ou-abcd-12345
 ```
 
 For more information on this feature, see the [AWS Organizations Support Guide](https://github.com/magneticstain/ip-2-cloudresource/wiki/AWS-Organizations-Support-Guide).
@@ -255,6 +243,18 @@ If you're looking to run IP2CR as fast as possible (single account), disable IP 
 ip2cr -ipaddr=1.2.3.4 -ip-fuzzing=false -adv-ip-fuzzing=false -svc=ec2
 ```
 
+#### Multi-Cloud Search
+
+To search across different cloud providers, use the `-platform` flag:
+
+```bash
+# Search GCP
+ip2cr -ipaddr=1.2.3.4 -platform=gcp -project-id=my-project-id
+
+# Search Azure
+ip2cr -ipaddr=1.2.3.4 -platform=azure
+```
+
 ## Testing/Demo
 
 You can use the Terraform plans provided here to generate sample resources in AWS for testing.
@@ -263,6 +263,12 @@ You can use the Terraform plans provided here to generate sample resources in AW
 
 ## Support, Feature Requests, and General Community Discussion
 
-The `Discussions` module of this repository has been setup as a place to get support, discuss new features, and facilitate any general discorse related to IP2CR.
+The `Discussions` module of this repository has been setup as a place to get support, discuss new features, and facilitate any general discussion related to IP2CR.
 
 If you are having an issue when using IP2CR, or just need general help, you should start here as opposed to creating an Issue. Any Issues created for support purposes will be closed.
+
+## Contributing
+
+Contributions are welcome! Please review the [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) and [SECURITY.md](./SECURITY.md) before contributing.
+
+For security vulnerabilities, please refer to the [SECURITY.md](./SECURITY.md) file for responsible disclosure guidelines.
