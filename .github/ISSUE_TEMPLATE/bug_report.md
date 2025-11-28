@@ -7,23 +7,28 @@ assignees: 'magneticstain'
 
 ---
 
-**Describe the Bug**
+## Describe the Bug
+
 A clear and concise description of what the bug is.
 
-**Steps To Reproduce**
+## Steps To Reproduce
+
 General steps to reproduce the behavior:
 
-**Expected Behavior**
+## Expected Behavior
+
 A clear and concise description of what you expected to happen.
 
-**Environment:**
+## Environment
 
 - OS [e.g. `Ubuntu 22.04`, `Mac OS 13/Ventura`]:
 - GO version (`go version`) [e.g. `go version go1.20.5 linux/amd64`]:
 - IP2CR version (`ip2cr --version`) [e.g. `v0.0.1`]:
 
-**Screenshots**
+## Screenshots
+
 If applicable, add screenshots to help explain your problem.
 
-**Additional Context**
+## Additional Context
+
 Add any other context about the problem here.

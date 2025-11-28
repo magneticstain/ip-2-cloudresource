@@ -7,11 +7,16 @@ assignees: 'magneticstain'
 
 ---
 
-**Feature Summary**
+## Feature Summary
+
 A clear and concise description of what you want to be changed.
 
-**Motivations / Use Cases For Feature**
-What benefit does the feature provide? Why change it? What happens if we don't change it?
+## Motivations / Use Cases For Feature
 
-**Additional context**
+What benefit does the feature provide?
+
+Why change it? What happens if we don't change it?
+
+## Additional context
+
 Add any other context or screenshots about the feature request here.
