@@ -100,12 +100,6 @@ homebrew_casks:
   -
     name: ip2cr
 
-    commit_author:
-      name: magneticstain
-      email: magneticstain@gmail.com
-      signing:
-        enabled: true
-
     commit_msg_template: "Brew cask update for {{ .ProjectName }} version {{ .Tag }}"
 
     homepage: "https://github.com/magneticstain/ip-2-cloudresource"
@@ -116,3 +110,10 @@ homebrew_casks:
       name: homebrew-ip2cr
 
       token: "{{ .Env.HOMEBREW_GITHUB_TOKEN }}"
+
+    commit_author:
+      name: magneticstain
+      email: magneticstain@gmail.com
+      # signing:
+      #   enabled: true
+      #   key: "{{ .Env.GPG_PRIVATE_KEY }}"
