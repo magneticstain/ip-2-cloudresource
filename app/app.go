@@ -15,7 +15,7 @@ import (
 )
 
 const APP_ENV = "production"
-const APP_VER = "v3.1.6"
+const APP_VER = "v3.2.0"
 
 func GetSupportedPlatforms() []string {
 	return []string{"aws", "gcp", "azure"}
