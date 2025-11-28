@@ -66,6 +66,10 @@ gh attestation verify --owner magneticstain <FILENAME>
 gh attestation verify --owner magneticstain <DOCKER_IMAGE>
 ```
 
+#### Checksums
+
+Checksums for all files are also included in the downloaded release archive, in case that method is preferred or required.
+
 ### Docker
 
 The most portable way to install and run IP2CR is by using Docker.
