@@ -53,7 +53,7 @@ IP-2-CloudResource (IP2CR) is a tool used for correlating a cloud IP address wit
 
 ### Go
 
-IP2CR requires Go 1.22 or later. It is tested against the current stable and previous stable versions of Go.
+IP2CR requires Go 1.22 or later. Releases are tested against the current stable and previous stable versions of Go.
 
 ## Install
 
