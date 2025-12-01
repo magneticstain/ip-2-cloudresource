@@ -15,7 +15,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing v1.33.15
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.54.1
 	github.com/aws/aws-sdk-go-v2/service/iam v1.52.1
-	github.com/aws/aws-sdk-go-v2/service/organizations v1.48.0
+	github.com/aws/aws-sdk-go-v2/service/organizations v1.49.0
 	github.com/rollbar/rollbar-go v1.4.8
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.10.1
